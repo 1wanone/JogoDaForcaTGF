@@ -17,5 +17,6 @@ public class TelaEscolherJogadorController {
             TelaEscolherTemaController.setJogador(new JogadorVeterano());
         }
         new TelaEscolherTemaController().mostrarTela();
+
     }
 }
