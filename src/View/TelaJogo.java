@@ -60,7 +60,7 @@ public class TelaJogo extends JFrame {
         painelDireita.add(tentarBtn);
 
         // Posiciona o painel flutuante
-        painelDireita.setBounds(550, 20, 220, 150);
+        painelDireita.setBounds(290, 20, 220, 150);
         painelFundo.add(painelDireita);
 
         setVisible(true);
