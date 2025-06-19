@@ -41,9 +41,6 @@ public class TelaEscolherJogador extends JFrame {
         panel.add(inicianteBtn);
         panel.add(veteranoBtn);
 
-        panel.add(inicianteBtn);
-        panel.add(veteranoBtn);
-
         add(panel);
         setVisible(true);
     }

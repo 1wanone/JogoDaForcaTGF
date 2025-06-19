@@ -40,4 +40,9 @@ public class Palavra {
         }
         return progresso.toString();
     }
+
+    // *** Método novo para pegar a palavra original completa ***
+    public String getPalavraSecreta() {
+        return palavraSecreta;
+    }
 }

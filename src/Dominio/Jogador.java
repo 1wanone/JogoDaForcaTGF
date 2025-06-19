@@ -7,7 +7,7 @@ public abstract class Jogador implements Jogavel {
         return tentativas;
     }
 
-    public void mostrarTentativasRestantes() {
-        System.out.println("Tentativas restantes: " + tentativas);
+    public void setTentativas(int tentativas) {
+        this.tentativas = tentativas;
     }
 }

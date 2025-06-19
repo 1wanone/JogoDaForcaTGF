@@ -20,18 +20,27 @@ public class TelaJogoController {
 
     public void processarTentativa(char letra, TelaJogo tela) {
         Partida partida = jogo.getPartidaAtual();
-        partida.tentativa(letra);
+        boolean acertou = partida.tentativa(letra);
 
         tela.atualizarTela();
 
+        if (!acertou) {
+            tela.mostrarAnimacaoErro();
+        } else {
+            tela.voltarAnimacaoPadrao();
+        }
+
         if (partida.venceu()) {
+            tela.mostrarAnimacaoVitoria();
             JOptionPane.showMessageDialog(null, "Parabéns! Você venceu!");
             perguntarJogarNovamente(tela);
         } else if (partida.terminou()) {
-            JOptionPane.showMessageDialog(null, "Game Over! A palavra era: " + partida.getProgresso());
+            JOptionPane.showMessageDialog(null, "Game Over! A palavra era: " + partida.getPalavra().getPalavraSecreta());
             perguntarJogarNovamente(tela);
         }
     }
+
+
 
     private void perguntarJogarNovamente(TelaJogo tela) {
         int resposta = JOptionPane.showConfirmDialog(null, "Deseja jogar novamente?", "Jogar Novamente", JOptionPane.YES_NO_OPTION);

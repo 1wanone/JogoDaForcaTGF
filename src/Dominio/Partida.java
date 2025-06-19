@@ -4,7 +4,6 @@ public class Partida {
     private Tema tema;
     private Palavra palavra;
     private Jogador jogador;
-    private int erros = 0;
 
     public Partida(Tema tema, Palavra palavra, Jogador jogador) {
         this.tema = tema;
@@ -12,10 +11,8 @@ public class Partida {
         this.jogador = jogador;
     }
 
-    public void tentativa(char letra) {
-        if (!palavra.verificaLetra(letra)) {
-            erros++;
-        }
+    public boolean tentativa(char letra) {
+        return jogador.tentarLetra(letra, this);
     }
 
     public boolean venceu() {
@@ -23,14 +20,22 @@ public class Partida {
     }
 
     public boolean terminou() {
-        return venceu() || erros >= jogador.getTentativas();
+        return venceu() || jogador.getTentativas() <= 0;
     }
 
     public String getProgresso() {
         return palavra.mostraProgresso();
     }
 
-    public int getErros() {
-        return erros;
+    public int getTentativasRestantes() {
+        return jogador.getTentativas();
+    }
+
+    public Palavra getPalavra() {
+        return palavra;
+    }
+
+    public Jogador getJogador() {
+        return jogador;
     }
 }

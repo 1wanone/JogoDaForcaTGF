@@ -1,5 +1,5 @@
 package Dominio;
 
 public interface Jogavel {
-    void jogar();
+    boolean tentarLetra(char letra, Partida partida);
 }

@@ -7,7 +7,11 @@ public class JogadorVeterano extends Jogador {
     }
 
     @Override
-    public void jogar() {
-        System.out.println("Jogador Veterano jogando...");
+    public boolean tentarLetra(char letra, Partida partida) {
+        boolean acertou = partida.getPalavra().verificaLetra(letra);
+        if (!acertou) {
+            tentativas--;
+        }
+        return acertou;
     }
 }

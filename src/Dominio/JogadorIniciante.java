@@ -7,7 +7,12 @@ public class JogadorIniciante extends Jogador {
     }
 
     @Override
-    public void jogar() {
-        System.out.println("Jogador Iniciante jogando...");
+    public boolean tentarLetra(char letra, Partida partida) {
+        boolean acertou = partida.getPalavra().verificaLetra(letra);
+        if (!acertou) {
+            tentativas--;
+            // Exemplo: poderia exibir dica para iniciante aqui (se quiser)
+        }
+        return acertou;
     }
 }
