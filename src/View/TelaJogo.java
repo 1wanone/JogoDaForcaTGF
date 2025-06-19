@@ -21,7 +21,7 @@ public class TelaJogo extends JFrame {
         this.partida = partida;
 
         setTitle("🎲 Jogo da Forca");
-        setSize(800, 600);
+        setSize(700, 600);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
@@ -39,12 +39,12 @@ public class TelaJogo extends JFrame {
         painelDireita.setOpaque(false);  // Transparente sobre o fundo animado
 
         progressoLabel = new JLabel(partida.getProgresso());
-        progressoLabel.setFont(new Font("Courier New", Font.BOLD, 24));
+        progressoLabel.setFont(new Font("Arial", Font.BOLD, 16));
 
         letraInput = new JTextField(2);
         letraInput.setFont(new Font("Arial", Font.BOLD, 24));
 
-        tentarBtn = new JButton("✔ Tentar");
+        tentarBtn = new JButton("Tentar");
         tentarBtn.setFont(new Font("Arial", Font.BOLD, 20));
         tentarBtn.addActionListener(e -> {
             String texto = letraInput.getText().trim();

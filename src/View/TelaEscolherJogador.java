@@ -16,16 +16,16 @@ public class TelaEscolherJogador extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
-        JLabel titulo = new JLabel("👾 Bem-vindo ao Jogo da Forca!");
+        JLabel titulo = new JLabel(" Bem-vindo ao Jogo da Forca!");
         titulo.setFont(new Font("Arial", Font.BOLD, 20));
         titulo.setHorizontalAlignment(SwingConstants.CENTER);
 
 
-        JButton inicianteBtn = new JButton("🌟 Iniciante");
-        JButton veteranoBtn = new JButton("🔥 Veterano");
+        JButton inicianteBtn = new JButton(" Iniciante");
+        JButton veteranoBtn = new JButton(" Veterano");
 
-        inicianteBtn.setBackground(Color.ORANGE);
-        veteranoBtn.setBackground(Color.blue);
+        inicianteBtn.setBackground(Color.green);
+        veteranoBtn.setBackground(Color.cyan);
 
         inicianteBtn.setFont(new Font("Arial", Font.BOLD, 25));
         veteranoBtn.setFont(new Font("Arial", Font.BOLD, 25));

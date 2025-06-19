@@ -18,7 +18,7 @@ public class TelaEscolherTema extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
-        JLabel titulo = new JLabel("🧠 Escolha um tema para começar!");
+        JLabel titulo = new JLabel(" Escolha um tema para começar!");
         titulo.setFont(new Font("Arial", Font.BOLD, 20));
         titulo.setHorizontalAlignment(SwingConstants.CENTER);
 
@@ -28,7 +28,7 @@ public class TelaEscolherTema extends JFrame {
             comboBox.addItem(tema.getNome());
         }
 
-        JButton jogarBtn = new JButton("🚀 Jogar");
+        JButton jogarBtn = new JButton(" Jogar");
         jogarBtn.setBackground(Color.CYAN);
         jogarBtn.setFont(new Font("Arial", Font.BOLD, 30));
 
