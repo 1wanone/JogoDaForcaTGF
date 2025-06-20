@@ -9,11 +9,11 @@ import java.util.List;
 
 public class TelaJogo extends JFrame {
     private JLabel progressoLabel;
+    private JLabel tentativasLabel; // NOVO: Label para tentativas
     private JTextField letraInput;
     private JButton tentarBtn;
     private Partida partida;
     private TelaJogoController controller;
-
     private AnimacaoGarota painelFundo;
 
     public TelaJogo(TelaJogoController controller, Partida partida) {
@@ -46,6 +46,11 @@ public class TelaJogo extends JFrame {
         progressoLabel.setFont(new Font("Arial", Font.BOLD, 16));
         progressoLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+        // NOVO: Label de tentativas restantes
+        tentativasLabel = new JLabel("Tentativas restantes: " + partida.getTentativasRestantes());
+        tentativasLabel.setFont(new Font("Arial", Font.PLAIN, 14));
+        tentativasLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+
         // Campo de texto
         letraInput = new JTextField(2);
         letraInput.setFont(new Font("Arial", Font.BOLD, 24));
@@ -67,13 +72,15 @@ public class TelaJogo extends JFrame {
 
         // Adicionando componentes com espaçamentos
         painelDireita.add(progressoLabel);
+        painelDireita.add(Box.createVerticalStrut(5));
+        painelDireita.add(tentativasLabel); // NOVO
         painelDireita.add(Box.createVerticalStrut(10));
         painelDireita.add(letraInput);
         painelDireita.add(Box.createVerticalStrut(10));
         painelDireita.add(tentarBtn);
 
         // Posicionamento do painel na tela
-        painelDireita.setBounds(290, 20, 220, 150);
+        painelDireita.setBounds(290, 20, 220, 180); // Ajustado para caber tudo
         painelFundo.add(painelDireita);
 
         setVisible(true);
@@ -81,6 +88,7 @@ public class TelaJogo extends JFrame {
 
     public void atualizarTela() {
         progressoLabel.setText(partida.getProgresso());
+        tentativasLabel.setText("Tentativas restantes: " + partida.getTentativasRestantes()); // NOVO
     }
 
     public void mostrarAnimacaoErro() {
