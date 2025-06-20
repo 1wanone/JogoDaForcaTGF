@@ -48,7 +48,7 @@ public class TelaJogo extends JFrame {
 
         // NOVO: Label de tentativas restantes
         tentativasLabel = new JLabel("Tentativas restantes: " + partida.getTentativasRestantes());
-        tentativasLabel.setFont(new Font("Arial", Font.PLAIN, 14));
+        tentativasLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 18));
         tentativasLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         // Campo de texto
