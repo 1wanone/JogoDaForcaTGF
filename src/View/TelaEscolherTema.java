@@ -14,7 +14,7 @@ public class TelaEscolherTema extends JFrame {
 
     public TelaEscolherTema(TelaEscolherTemaController controller, List<Tema> temas) {
         setTitle("🎯 Escolha um Tema");
-        setSize(400, 450);
+        setSize(700, 600);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 

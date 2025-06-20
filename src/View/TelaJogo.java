@@ -14,7 +14,7 @@ public class TelaJogo extends JFrame {
     private Partida partida;
     private TelaJogoController controller;
 
-    private AnimacaoGarota painelFundo;  // Agora o fundo é a garota inteira (com cenário)
+    private AnimacaoGarota painelFundo;
 
     public TelaJogo(TelaJogoController controller, Partida partida) {
         this.controller = controller;
@@ -26,26 +26,36 @@ public class TelaJogo extends JFrame {
         setLocationRelativeTo(null);
 
         // Carrega animação da garota padrão
-        String[] framesPadrao = {"/imagens/meninaForcaPadraoFinal1.png", "/imagens/meninaForcaPadraoFinal2.png"};
+        String[] framesPadrao = {
+                "/imagens/meninaForcaPadraoFinal1.png",
+                "/imagens/meninaForcaPadraoFinal2.png"
+        };
         List<Image> framesIniciais = Utils.carregarFrames(framesPadrao);
         painelFundo = new AnimacaoGarota(framesIniciais, 500);
-        painelFundo.setLayout(null);  // Para posicionar os botões no topo
+        painelFundo.setLayout(null);
 
         setContentPane(painelFundo);
 
-        // Painel flutuante no topo direito
+        // Painel flutuante no topo direito com BoxLayout centralizado
         JPanel painelDireita = new JPanel();
-        painelDireita.setLayout(new GridLayout(3, 1, 5, 5));
-        painelDireita.setOpaque(false);  // Transparente sobre o fundo animado
+        painelDireita.setLayout(new BoxLayout(painelDireita, BoxLayout.Y_AXIS));
+        painelDireita.setOpaque(false);
 
+        // Label de progresso
         progressoLabel = new JLabel(partida.getProgresso());
         progressoLabel.setFont(new Font("Arial", Font.BOLD, 16));
+        progressoLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+        // Campo de texto
         letraInput = new JTextField(2);
         letraInput.setFont(new Font("Arial", Font.BOLD, 24));
+        letraInput.setMaximumSize(new Dimension(80, 20));
+        letraInput.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+        // Botão de tentativa
         tentarBtn = new JButton("Tentar");
         tentarBtn.setFont(new Font("Arial", Font.BOLD, 20));
+        tentarBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
         tentarBtn.addActionListener(e -> {
             String texto = letraInput.getText().trim();
             if (!texto.isEmpty()) {
@@ -55,11 +65,14 @@ public class TelaJogo extends JFrame {
             }
         });
 
+        // Adicionando componentes com espaçamentos
         painelDireita.add(progressoLabel);
+        painelDireita.add(Box.createVerticalStrut(10));
         painelDireita.add(letraInput);
+        painelDireita.add(Box.createVerticalStrut(10));
         painelDireita.add(tentarBtn);
 
-        // Posiciona o painel flutuante
+        // Posicionamento do painel na tela
         painelDireita.setBounds(290, 20, 220, 150);
         painelFundo.add(painelDireita);
 
@@ -71,21 +84,29 @@ public class TelaJogo extends JFrame {
     }
 
     public void mostrarAnimacaoErro() {
-        List<Image> erroFrames = Utils.carregarFrames(new String[]{"/imagens/meninaForcaErroFinal.png"});
-        painelFundo.mudarFrames(erroFrames, 1000);
+        List<Image> erroFrames = Utils.carregarFrames(
+                new String[]{"/imagens/meninaForcaErroFinal.png"}
+        );
+        painelFundo.mudarFrames(erroFrames, 500);
     }
 
     public void mostrarAnimacaoVitoria() {
-        List<Image> vitoriaFrames = Utils.carregarFrames(new String[]{
-                "/imagens/meninaForcaVitoriaFinal1.png", "/imagens/meninaForcaVitoriaFinal2.png"
-        });
+        List<Image> vitoriaFrames = Utils.carregarFrames(
+                new String[]{
+                        "/imagens/meninaForcaVitoriaFinal1.png",
+                        "/imagens/meninaForcaVitoriaFinal2.png"
+                }
+        );
         painelFundo.mudarFrames(vitoriaFrames, 400);
     }
 
     public void voltarAnimacaoPadrao() {
-        List<Image> framesPadrao = Utils.carregarFrames(new String[]{
-                "/imagens/meninaForcaPadraoFinal1.png", "/imagens/meninaForcaPadraoFinal2.png"
-        });
+        List<Image> framesPadrao = Utils.carregarFrames(
+                new String[]{
+                        "/imagens/meninaForcaPadraoFinal1.png",
+                        "/imagens/meninaForcaPadraoFinal2.png"
+                }
+        );
         painelFundo.mudarFrames(framesPadrao, 500);
     }
 }
