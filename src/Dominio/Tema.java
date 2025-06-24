@@ -6,10 +6,11 @@ import java.util.Random;
 
 public class Tema {
     private String nome;
-    private List<Palavra> palavras = new ArrayList<>();
+    private List<Palavra> palavras;
 
     public Tema(String nome) {
         this.nome = nome;
+        this.palavras = new ArrayList<>();
     }
 
     public String getNome() {
@@ -29,7 +30,11 @@ public class Tema {
     }
 
     public Palavra sorteiaPalavra() {
+        if (palavras.isEmpty()) {
+            throw new IllegalStateException("Não há palavras disponíveis neste tema");
+        }
         Random random = new Random();
         return palavras.get(random.nextInt(palavras.size()));
     }
+
 }

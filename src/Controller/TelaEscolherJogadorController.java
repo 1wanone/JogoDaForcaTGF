@@ -1,10 +1,12 @@
 package Controller;
 
+import Dominio.Jogador;
 import Dominio.JogadorIniciante;
 import Dominio.JogadorVeterano;
 import View.TelaEscolherJogador;
 
 public class TelaEscolherJogadorController {
+    Jogador jogador;
 
     public void mostrarTela() {
         new TelaEscolherJogador(this);
@@ -12,11 +14,10 @@ public class TelaEscolherJogadorController {
 
     public void jogadorSelecionado(String tipoJogador) {
         if (tipoJogador.equals("Iniciante")) {
-            TelaEscolherTemaController.setJogador(new JogadorIniciante());
+            jogador = new JogadorIniciante();
         } else {
-            TelaEscolherTemaController.setJogador(new JogadorVeterano());
+            jogador = new JogadorVeterano();
         }
-        new TelaEscolherTemaController().mostrarTela();
-
+        new TelaEscolherTemaController(jogador).mostrarTela();
     }
 }

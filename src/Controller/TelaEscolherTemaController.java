@@ -8,10 +8,10 @@ import View.TelaEscolherTema;
 import java.util.List;
 
 public class TelaEscolherTemaController {
-    private static Jogador jogador;
+    private final Jogador jogador;
 
-    public static void setJogador(Jogador j) {
-        jogador = j;
+    public TelaEscolherTemaController(Jogador jogador) {
+        this.jogador = jogador;
     }
 
     public void mostrarTela() {

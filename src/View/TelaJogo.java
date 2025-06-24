@@ -9,7 +9,7 @@ import java.util.List;
 
 public class TelaJogo extends JFrame {
     private JLabel progressoLabel;
-    private JLabel tentativasLabel; // NOVO: Label para tentativas
+    private JLabel tentativasLabel;
     private JTextField letraInput;
     private JButton tentarBtn;
     private Partida partida;
@@ -25,7 +25,6 @@ public class TelaJogo extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
-        // Carrega animação da garota padrão
         String[] framesPadrao = {
                 "/imagens/meninaForcaPadraoFinal1.png",
                 "/imagens/meninaForcaPadraoFinal2.png"
@@ -36,30 +35,28 @@ public class TelaJogo extends JFrame {
 
         setContentPane(painelFundo);
 
-        // Painel flutuante no topo direito com BoxLayout centralizado
+
         JPanel painelDireita = new JPanel();
         painelDireita.setLayout(new BoxLayout(painelDireita, BoxLayout.Y_AXIS));
         painelDireita.setOpaque(false);
 
-        // Label de progresso
         progressoLabel = new JLabel(partida.getProgresso());
         progressoLabel.setFont(new Font("Arial", Font.BOLD, 16));
         progressoLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        // NOVO: Label de tentativas restantes
         tentativasLabel = new JLabel("Tentativas restantes: " + partida.getTentativasRestantes());
         tentativasLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 18));
         tentativasLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        // Campo de texto
+
         letraInput = new JTextField(2);
-        letraInput.setFont(new Font("Arial", Font.BOLD, 24));
+        letraInput.setFont(new Font("Arial", Font.BOLD, 21));
         letraInput.setMaximumSize(new Dimension(80, 20));
         letraInput.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        // Botão de tentativa
+
         tentarBtn = new JButton("Tentar");
-        tentarBtn.setFont(new Font("Arial", Font.BOLD, 20));
+        tentarBtn.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
         tentarBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
         tentarBtn.addActionListener(e -> {
             String texto = letraInput.getText().trim();
@@ -70,7 +67,6 @@ public class TelaJogo extends JFrame {
             }
         });
 
-        // Adicionando componentes com espaçamentos
         painelDireita.add(progressoLabel);
         painelDireita.add(Box.createVerticalStrut(5));
         painelDireita.add(tentativasLabel); // NOVO
@@ -79,8 +75,7 @@ public class TelaJogo extends JFrame {
         painelDireita.add(Box.createVerticalStrut(10));
         painelDireita.add(tentarBtn);
 
-        // Posicionamento do painel na tela
-        painelDireita.setBounds(290, 20, 220, 180); // Ajustado para caber tudo
+        painelDireita.setBounds(290, 20, 220, 180);
         painelFundo.add(painelDireita);
 
         setVisible(true);
@@ -88,7 +83,7 @@ public class TelaJogo extends JFrame {
 
     public void atualizarTela() {
         progressoLabel.setText(partida.getProgresso());
-        tentativasLabel.setText("Tentativas restantes: " + partida.getTentativasRestantes()); // NOVO
+        tentativasLabel.setText("Tentativas restantes: " + partida.getTentativasRestantes());
     }
 
     public void mostrarAnimacaoErro() {

@@ -23,7 +23,7 @@ public class AnimacaoGarota extends JPanel {
         super.paintComponent(g);
         if (!frames.isEmpty()) {
             Image frame = frames.get(frameAtual);
-            g.drawImage(frame, 0, 0, getWidth(), getHeight(), this);  // ESTICA a imagem do frame para ocupar todo o painel
+            g.drawImage(frame, 0, 0, getWidth(), getHeight(), this);
         }
     }
 

@@ -3,7 +3,7 @@ package Dominio;
 public class JogadorVeterano extends Jogador {
 
     public JogadorVeterano() {
-        this.tentativas = 4;
+      super(4);
     }
 
     @Override

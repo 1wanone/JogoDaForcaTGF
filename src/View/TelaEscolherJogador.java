@@ -7,23 +7,15 @@ import java.awt.event.ActionEvent;
 import java.awt.Font;
 import java.awt.Color;
 import java.awt.GridLayout;
-import java.io.InputStream;
-
-
 
 
 public class TelaEscolherJogador extends JFrame {
 
-    private Font pixelFont;
-
     public TelaEscolherJogador(TelaEscolherJogadorController controller) {
-        pixelFont = carregarFontePixel();
         setTitle("🎮 Escolher Jogador");
         setSize(700, 600);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-
-        Font pixelFont = carregarFontePixel();
 
         JLabel titulo = new JLabel(" Bem-vindo ao Jogo da Forca!");
         titulo.setFont(new Font("Comic Sans MS", Font.BOLD, 24));
@@ -60,20 +52,5 @@ public class TelaEscolherJogador extends JFrame {
         botao.setFont(new Font("Comic Sans MS", Font.BOLD, 18));
     }
 
-    private Font carregarFontePixel() {
-        try {
-            InputStream is = getClass().getResourceAsStream("/fontes/PressStart2P.ttf");
-            if (is == null) {
-                // Fonte não encontrada, usar fonte padrão
-               // System.out.println("❌ Fonte não encontrada, usando Arial.");
-                return new Font("Arial", Font.BOLD, 20);
-            }
-            return Font.createFont(Font.TRUETYPE_FONT, is);
-        } catch (Exception e) {
-            // Qualquer outro erro, usar fonte padrão
-            System.out.println("⚠️ Erro ao carregar fonte, usando Arial.");
-            return new Font("Arial", Font.BOLD, 20);
-        }
 
-    }
 }

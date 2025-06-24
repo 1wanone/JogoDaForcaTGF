@@ -12,8 +12,12 @@ public class Partida {
     }
 
     public boolean tentativa(char letra) {
+        if (!Character.isLetter(letra)) {
+            throw new IllegalArgumentException("A tentativa deve ser uma letra do alfabeto");
+        }
         return jogador.tentarLetra(letra, this);
     }
+
 
     public boolean venceu() {
         return palavra.palavraCompleta();
