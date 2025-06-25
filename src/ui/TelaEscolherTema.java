@@ -10,41 +10,45 @@ import java.util.List;
 public class TelaEscolherTema extends JFrame {
 
     public TelaEscolherTema(TelaEscolherTemaController controller, List<Tema> temas) {
-        setTitle("🎯 Escolher Tema");
-        setSize(700, 600);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
+        try {
+            setTitle("🎯 Escolher Tema");
+            setSize(700, 600);
+            setDefaultCloseOperation(EXIT_ON_CLOSE);
+            setLocationRelativeTo(null);
 
-        // Fundo pixelado
-        FundoPixelArt fundo = new FundoPixelArt("/imagens/fundoEscolherTema.png");
-        fundo.setLayout(null);
+            FundoPixelArt fundo = new FundoPixelArt("/imagens/fundoEscolherTema.png");
+            fundo.setLayout(null);
 
-        // ComboBox de temas
-        JComboBox<String> comboBox = new JComboBox<>();
-        for (Tema tema : temas) {
-            comboBox.addItem(tema.getNome());
+            JComboBox<String> comboBox = new JComboBox<>();
+            for (Tema tema : temas) {
+                comboBox.addItem(tema.getNome());
+            }
+            comboBox.setBounds(240, 250, 200, 40);
+            fundo.add(comboBox);
+
+            JButton jogarBtn = new JButton(new ImageIcon(getClass().getResource("/imagens/bntJogar.png")));
+            estilizarBotaoPixel(jogarBtn);
+            jogarBtn.setBounds(250, 320, 200, 50);
+            jogarBtn.addActionListener((ActionEvent e) -> {
+                try {
+                    int index = comboBox.getSelectedIndex();
+                    if (index >= 0) {
+                        controller.temaSelecionado(temas.get(index));
+                        dispose();
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Por favor, selecione um tema.", "Aviso", JOptionPane.WARNING_MESSAGE);
+                    }
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(this, "Erro ao iniciar jogo: " + ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+                }
+            });
+
+            fundo.add(jogarBtn);
+            setContentPane(fundo);
+            setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Erro ao abrir a tela de temas: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         }
-        comboBox.setBounds(240, 250, 200, 40); // Ajuste para alinhar com o fundo
-        comboBox.setBackground(new java.awt.Color(255, 255, 255));
-        comboBox.setForeground(java.awt.Color.BLACK);
-        comboBox.setFont(new java.awt.Font("Arial", java.awt.Font.BOLD, 16));
-        fundo.add(comboBox);
-
-        // Botão Jogar
-        JButton jogarBtn = new JButton(new ImageIcon(getClass().getResource("/imagens/bntJogar.png")));
-        estilizarBotaoPixel(jogarBtn);
-        jogarBtn.setBounds(250, 320, 200, 50); // Ajuste conforme imagem
-        jogarBtn.addActionListener((ActionEvent e) -> {
-            int index = comboBox.getSelectedIndex();
-            controller.temaSelecionado(temas.get(index));
-            dispose();
-        });
-
-        fundo.add(jogarBtn);
-
-        // Finalizar janela
-        setContentPane(fundo);
-        setVisible(true);
     }
 
     private void estilizarBotaoPixel(JButton botao) {
