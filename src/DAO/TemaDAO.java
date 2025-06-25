@@ -1,7 +1,7 @@
 package DAO;
 
-import Dominio.Tema;
-import Dominio.Palavra;
+import dominio.Tema;
+import dominio.Palavra;
 
 import java.sql.*;
 import java.util.ArrayList;
