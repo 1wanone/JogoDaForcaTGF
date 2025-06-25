@@ -17,11 +17,11 @@ public class TelaEscolherJogador extends JFrame {
             FundoPixelArt fundo = new FundoPixelArt("/imagens/fundoEscolherJogador.png");
 
             JButton inicianteBtn = new JButton(new ImageIcon(getClass().getResource("/imagens/bntIniciante.png")));
-            estilizarBotaoPixel(inicianteBtn);
+            Utils.estilizarBotaoPixel(inicianteBtn);
             inicianteBtn.setBounds(250, 250, 200, 50);
 
             JButton veteranoBtn = new JButton(new ImageIcon(getClass().getResource("/imagens/bntVeterano.png")));
-            estilizarBotaoPixel(veteranoBtn);
+            Utils.estilizarBotaoPixel(veteranoBtn);
             veteranoBtn.setBounds(250, 320, 200, 50);
 
             inicianteBtn.addActionListener((ActionEvent e) -> controller.jogadorSelecionado("Iniciante"));
@@ -35,11 +35,5 @@ public class TelaEscolherJogador extends JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Erro ao abrir a tela de jogador: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         }
-    }
-
-    private void estilizarBotaoPixel(JButton botao) {
-        botao.setBorderPainted(false);
-        botao.setContentAreaFilled(false);
-        botao.setFocusPainted(false);
     }
 }

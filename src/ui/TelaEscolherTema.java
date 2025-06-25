@@ -27,7 +27,7 @@ public class TelaEscolherTema extends JFrame {
             fundo.add(comboBox);
 
             JButton jogarBtn = new JButton(new ImageIcon(getClass().getResource("/imagens/bntJogar.png")));
-            estilizarBotaoPixel(jogarBtn);
+            Utils.estilizarBotaoPixel(jogarBtn);
             jogarBtn.setBounds(250, 320, 200, 50);
             jogarBtn.addActionListener((ActionEvent e) -> {
                 try {
@@ -49,11 +49,5 @@ public class TelaEscolherTema extends JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Erro ao abrir a tela de temas: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         }
-    }
-
-    private void estilizarBotaoPixel(JButton botao) {
-        botao.setBorderPainted(false);
-        botao.setContentAreaFilled(false);
-        botao.setFocusPainted(false);
     }
 }

@@ -30,7 +30,6 @@ public class TelaJogo extends JFrame {
             setDefaultCloseOperation(EXIT_ON_CLOSE);
             setLocationRelativeTo(null);
 
-            // Animação da garota
             String[] framesPadrao = {
                     "/imagens/meninaForcaPadraoFinal1.png",
                     "/imagens/meninaForcaPadraoFinal2.png"
@@ -40,7 +39,6 @@ public class TelaJogo extends JFrame {
             painelFundo.setLayout(null);
             setContentPane(painelFundo);
 
-            // Área de progresso (centralizado)
             progressoArea = new JTextArea(partida.getProgresso());
             progressoArea.setFont(new Font("Courier New", Font.BOLD, 25));
             progressoArea.setForeground(Color.black);
@@ -53,22 +51,19 @@ public class TelaJogo extends JFrame {
             progressoArea.setBounds(150, 100, 400, 60);
             painelFundo.add(progressoArea);
 
-            // Tentativas restantes
             tentativasLabel = new JLabel("Tentativas: " + partida.getTentativasRestantes());
             tentativasLabel.setFont(new Font("Courier New", Font.BOLD, 20));
             tentativasLabel.setForeground(Color.black);
             tentativasLabel.setBounds(260, 170, 300, 30);
             painelFundo.add(tentativasLabel);
 
-            // Campo para digitar letra
             letraInput = new JTextField(1);
             letraInput.setFont(new Font("Courier New", Font.BOLD, 28));
             letraInput.setBounds(270, 220, 60, 40);
             painelFundo.add(letraInput);
 
-            // Botão tentar
             tentarBtn = new JButton(new ImageIcon(getClass().getResource("/imagens/bntTentar.png")));
-            estilizarBotaoPixel(tentarBtn);
+            Utils.estilizarBotaoPixel(tentarBtn);
             tentarBtn.setBounds(350, 220, 120, 40);
             tentarBtn.addActionListener(e -> {
                 try {
@@ -86,7 +81,6 @@ public class TelaJogo extends JFrame {
             });
             painelFundo.add(tentarBtn);
 
-            // Inicia som de fundo
             somFundo = new PlayerSom();
             somFundo.play("/sons/fundo.wav", true);
 
@@ -95,12 +89,6 @@ public class TelaJogo extends JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro ao carregar a tela do jogo: " + e.getMessage(), "Erro Crítico", JOptionPane.ERROR_MESSAGE);
         }
-    }
-
-    private void estilizarBotaoPixel(JButton botao) {
-        botao.setBorderPainted(false);
-        botao.setContentAreaFilled(false);
-        botao.setFocusPainted(false);
     }
 
     public void atualizarTela() {

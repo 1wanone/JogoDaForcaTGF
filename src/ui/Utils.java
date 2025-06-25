@@ -1,6 +1,7 @@
 package ui;
 
 import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 import java.io.InputStream;
@@ -33,4 +34,11 @@ public class Utils {
         }
         return frames;
     }
+
+    public static void estilizarBotaoPixel(JButton botao) {
+        botao.setBorderPainted(false);
+        botao.setContentAreaFilled(false);
+        botao.setFocusPainted(false);
+    }
+
 }

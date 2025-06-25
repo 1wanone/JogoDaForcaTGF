@@ -6,7 +6,7 @@ import dominio.JogadorVeterano;
 import ui.TelaEscolherJogador;
 
 public class TelaEscolherJogadorController {
-    Jogador jogador;
+    private Jogador jogador;
 
     public void mostrarTela() {
         new TelaEscolherJogador(this);
