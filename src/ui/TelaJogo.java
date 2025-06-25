@@ -137,4 +137,5 @@ public class TelaJogo extends JFrame {
             JOptionPane.showMessageDialog(this, "Erro ao retornar à animação padrão.", "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }
+
 }

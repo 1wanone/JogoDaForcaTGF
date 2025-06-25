@@ -61,6 +61,7 @@ public class TelaJogoController {
         if (resposta == 0) {
             tela.dispose();
             new TelaEscolherJogadorController().mostrarTela();
+
         } else {
             System.exit(0);
         }

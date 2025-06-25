@@ -29,8 +29,9 @@ public class PlayerSom {
     }
 
     public void parar() {
-        if (clip != null && clip.isRunning()) {
-            clip.stop();
+        if (clip != null) {
+            if (clip.isRunning()) clip.stop();
+            clip.close();
         }
     }
 }
