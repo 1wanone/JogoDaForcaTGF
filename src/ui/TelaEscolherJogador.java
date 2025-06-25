@@ -15,7 +15,6 @@ public class TelaEscolherJogador extends JFrame {
 
         FundoPixelArt fundo = new FundoPixelArt("/imagens/fundoEscolherJogador.png");
 
-        // Botão Iniciante
         JButton inicianteBtn = new JButton(new ImageIcon(getClass().getResource("/imagens/bntIniciante.png")));
         estilizarBotaoPixel(inicianteBtn);
         inicianteBtn.setBounds(250, 250, 200, 50); // ajuste como quiser
