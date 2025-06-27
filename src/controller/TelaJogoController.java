@@ -59,6 +59,7 @@ public class TelaJogoController {
         );
 
         if (resposta == 0) {
+            tela.pararSomFundo();
             tela.dispose();
             new TelaEscolherJogadorController().mostrarTela();
 

@@ -138,4 +138,11 @@ public class TelaJogo extends JFrame {
         }
     }
 
+    public void pararSomFundo() {
+        if (somFundo != null) {
+            somFundo.parar();
+        }
+    }
+
+
 }
