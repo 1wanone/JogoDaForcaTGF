@@ -25,7 +25,7 @@ public class TelaJogo extends JFrame {
             this.controller = controller;
             this.partida = partida;
 
-            setTitle("🎲 Jogo da Forca");
+            setTitle("Jogo da Forca");
             setSize(700, 600);
             setDefaultCloseOperation(EXIT_ON_CLOSE);
             setLocationRelativeTo(null);

@@ -9,7 +9,7 @@ public class TelaEscolherJogador extends JFrame {
 
     public TelaEscolherJogador(TelaEscolherJogadorController controller) {
         try {
-            setTitle("🎮 Escolher Jogador");
+            setTitle("Escolher Jogador");
             setSize(700, 600);
             setDefaultCloseOperation(EXIT_ON_CLOSE);
             setLocationRelativeTo(null);
