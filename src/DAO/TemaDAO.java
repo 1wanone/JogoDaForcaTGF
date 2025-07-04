@@ -11,7 +11,6 @@ public class TemaDAO {
 
     public List<Tema> listarTemas() {
         List<Tema> temas = new ArrayList<>();
-
         String sql = "SELECT id, nome FROM tema";
 
         try (Connection conn = Conexao.getConexao();
@@ -19,24 +18,23 @@ public class TemaDAO {
              ResultSet rs = stmt.executeQuery()) {
 
             while (rs.next()) {
-                Tema tema = new Tema(rs.getString("nome"));
-                tema = carregarPalavrasDoTema(tema, rs.getInt("id"));
+                Tema tema = new Tema(rs.getInt("id"), rs.getString("nome"));
+                carregarPalavrasDoTema(tema);
                 temas.add(tema);
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.err.println("Erro ao listar temas: " + e.getMessage());
         }
 
         return temas;
     }
 
-    private Tema carregarPalavrasDoTema(Tema tema, int idTema) {
+    private void carregarPalavrasDoTema(Tema tema) {
         PalavraDAO palavraDAO = new PalavraDAO();
-        List<Palavra> palavras = palavraDAO.listarPalavrasPorTema(idTema);
+        List<Palavra> palavras = palavraDAO.listarPalavrasPorTema(tema.getId());
         for (Palavra p : palavras) {
             tema.adicionarPalavra(p);
         }
-        return tema;
     }
 }

@@ -19,7 +19,7 @@ public class Utils {
                 return null;
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("Erro ao carregar a imagem: " + caminho + e.getMessage());
             return null;
         }
     }

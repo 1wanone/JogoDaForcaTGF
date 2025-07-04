@@ -87,7 +87,7 @@ public class TelaJogo extends JFrame {
             setVisible(true);
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro ao carregar a tela do jogo: " + e.getMessage(), "Erro Crítico", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Erro ao carregar a tela do jogo: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }
 

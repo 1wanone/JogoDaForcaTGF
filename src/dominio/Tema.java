@@ -5,12 +5,18 @@ import java.util.List;
 import java.util.Random;
 
 public class Tema {
+    private int id;
     private String nome;
     private List<Palavra> palavras;
 
-    public Tema(String nome) {
+    public Tema(int id, String nome) {
+        this.id = id;
         this.nome = nome;
         this.palavras = new ArrayList<>();
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getNome() {
@@ -25,10 +31,6 @@ public class Tema {
         palavras.add(p);
     }
 
-    public void removerPalavra(Palavra p) {
-        palavras.remove(p);
-    }
-
     public Palavra sorteiaPalavra() {
         if (palavras.isEmpty()) {
             throw new IllegalStateException("Não há palavras disponíveis neste tema");
@@ -36,5 +38,4 @@ public class Tema {
         Random random = new Random();
         return palavras.get(random.nextInt(palavras.size()));
     }
-
 }

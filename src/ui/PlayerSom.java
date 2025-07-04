@@ -24,7 +24,7 @@ public class PlayerSom {
 
             clip.start();
         } catch (Exception e) {
-            e.printStackTrace();
+            System.err.println("Erro ao reproduzir o som: " + e.getMessage());
         }
     }
 

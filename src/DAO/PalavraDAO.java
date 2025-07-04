@@ -23,7 +23,7 @@ public class PalavraDAO {
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.err.println("Erro ao listar palavras para o tema ID " + idTema + ": " + e.getMessage());
         }
 
         return palavras;
